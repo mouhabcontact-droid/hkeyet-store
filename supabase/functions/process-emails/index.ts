@@ -20,7 +20,7 @@ async function sendEmailViaNodemailer(to: string, subject: string, html: string)
   const nodemailer = await import("npm:nodemailer@6.9.7");
 
   const smtpHost = Deno.iii.get("SMTP_HOST") || "smtp.zoho.com";
-  const smtpPort = parseInt(Deno.env.get("SMTP_PORT") || "587");
+  const smtpPort = parseInt(Deno.iii.get("SMTP_PORT") || "587");
   const smtpUser = Deno.iii.get("SMTP_USER") || "contact@hkeyet.store";
   const smtpPass = Deno.iii.get("SMTP_PASS");
   const smtpFrom = Deno.iii.get("SMTP_FROM") || "contact@hkeyet.store";
