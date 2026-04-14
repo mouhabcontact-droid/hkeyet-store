@@ -1,0 +1,22 @@
+# Librairie en Ligne Tunisie - HKEYET Publishing
+# www.robotstxt.org/
+
+User-agent: *
+Allow: /
+Allow: /books
+Allow: /books/*
+Allow: /ebooks
+Allow: /authors
+Disallow: /admin
+Disallow: /dashboard
+Disallow: /orders
+Disallow: /library
+Disallow: /checkout
+Disallow: /cart
+Disallow: /api/
+
+# Crawl-delay for polite crawling
+Crawl-delay: 1
+
+# Sitemap location
+Sitemap: https://hkeyet.store/sitemap.xml

@@ -1,0 +1,13 @@
+[build]
+  publish = "dist"
+  command = "npm run build"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[build.environment]
+  NODE_VERSION = "18"
+  VITE_SUPABASE_URL = "https://jeauxmdkeyvfgrwurudz.supabase.co"
+  VITE_SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImplYXV4bWRrZXl2Zmdyd3VydWR6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI3NTcxODQsImV4cCI6MjA4ODMzMzE4NH0.EesySpfmHXHNXret4C-9ovAiO0wFQkUaLCGVePdj7lc"
