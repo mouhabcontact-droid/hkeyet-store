@@ -14,11 +14,11 @@ interface EmailRequest {
 }
 
 async function sendEmail(config: EmailRequest): Promise<boolean> {
-  const smtpHost = Deno.env.get("SMTP_HOST");
-  const smtpPort = Deno.env.get("SMTP_PORT");
-  const smtpUser = Deno.env.get("SMTP_USER");
-  const smtpPass = Deno.env.get("SMTP_PASS");
-  const smtpFrom = Deno.env.get("SMTP_FROM");
+  const smtpHost = Deno.iii.get("SMTP_HOST");
+  const smtpPort = Deno.iii.get("SMTP_PORT");
+  const smtpUser = Deno.iii.get("SMTP_USER");
+  const smtpPass = Deno.iii.get("SMTP_PASS");
+  const smtpFrom = Deno.iii.get("SMTP_FROM");
 
   if (!smtpHost || !smtpPort || !smtpUser || !smtpPass || !smtpFrom) {
     throw new Error("SMTP configuration missing");
