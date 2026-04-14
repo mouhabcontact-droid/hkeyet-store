@@ -19,11 +19,11 @@ interface EmailLog {
 async function sendEmailViaNodemailer(to: string, subject: string, html: string): Promise<boolean> {
   const nodemailer = await import("npm:nodemailer@6.9.7");
 
-  const smtpHost = Deno.iii.get("SMTP_HOST") || "smtp.zoho.com";
-  const smtpPort = parseInt(Deno.iii.get("SMTP_PORT") || "587");
-  const smtpUser = Deno.iii.get("SMTP_USER") || "contact@hkeyet.store";
-  const smtpPass = Deno.iii.get("SMTP_PASS");
-  const smtpFrom = Deno.iii.get("SMTP_FROM") || "contact@hkeyet.store";
+  const smtpHost = Deno.env.get("SMTP_HOST") || "smtp.zoho.com";
+  const smtpPort = parseInt(Deno.env.get("SMTP_PORT") || "587");
+  const smtpUser = Deno.env.get("SMTP_USER") || "contact@hkeyet.store";
+  const smtpPass = Deno.env.get("SMTP_PASS");
+  const smtpFrom = Deno.env.get("SMTP_FROM") || "contact@hkeyet.store";
 
   if (!smtpPass) {
     throw new Error("SMTP_PASS environment variable is not set");
@@ -69,8 +69,8 @@ Deno.serve(async (req: Request) => {
   }
 
   try {
-    const supabaseUrl = Deno.iii.get("SUPABASE_URL")!;
-    const supabaseKey = Deno.iii.get("SUPABASE_SERVICE_ROLE_KEY")!;
+    const supabaseUrl = Deno.env.get("SUPABASE_URL")!;
+    const supabaseKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
     const supabase = createClient(supabaseUrl, supabaseKey);
 
     const { data: pendingEmails, error: fetchError } = await supabase
